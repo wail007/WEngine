@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Component">
+    <Position X="0.5" Y="4.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAQAAAAAAAAAAAAABAAAEAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\core\Component.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ComponentManager">
+    <Position X="0.5" Y="2" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAACAAEAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\core\ComponentManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ComponentTypeInfo">
+    <Position X="0.5" Y="6.5" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="ComponentTypeInfo::Iterator">
+        <TypeIdentifier>
+          <NewMemberFileName>C:\Users\wail\Documents\WEngine\include\core\ComponentTypeInfo.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAAAAAAACAAAAAAAAAEEAAAAAAAAIAAAAAg=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\core\ComponentTypeInfo.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventData">
+    <Position X="7.25" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\core\EventData.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventManager">
+    <Position X="7.25" Y="7.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAQBAAEABAIAhAAgAAAAAAACAAAQEAAAAAAAAEAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\core\EventManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameObject">
+    <Position X="3.75" Y="4.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAEAABAAAAAAAAAARAAAAAAAAQAABAAAAIAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\core\GameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameObjectManager">
+    <Position X="3.75" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAEAAAAAgAAAAAIAAAACAAAAAAAAAAAQAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\core\GameObjectManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manager">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\core\Manager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scene" Collapsed="true">
+    <Position X="17.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\core\Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitSet">
+    <Position X="19.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EEAAAAEAAMBAAAAAwgQAAAAAAAAAMAAAAAAAAAoAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\utilities\BitSet.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Delegate&lt;ReturnType, ...Params&gt;">
+    <Position X="11.75" Y="0.5" Width="3.25" />
+    <NestedTypes>
+      <Typedef Name="Delegate&lt;ReturnType, ...Params&gt;::FuncPtr" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>C:\Users\wail\Documents\WEngine\include\utilities\Delegate.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgEEAAAAQAAAAAAAAAkAAAgAAAAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\utilities\Delegate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DelegateFactory&lt;T, ReturnType, ...Params&gt;">
+    <Position X="11.75" Y="4" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAABAAAAgAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\utilities\Delegate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NullObject">
+    <Position X="17.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\utilities\Delegate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DynamicMemoryPool">
+    <Position X="19.25" Y="4.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAAAAAAAAgEAAAwAAAAAAAQAAAAQAgAAgAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\utilities\DynamicMemoryPool.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentifierPool">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAACggAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\utilities\IdentifierPool.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RefCounter">
+    <Position X="7.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAEAiAAAAAAAAAAAAAAAAAAAAAAAAAgAAAACAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\utilities\RefCounter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StrongPtr&lt;T&gt;">
+    <Position X="9.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQAAABIAAAAAAAAAAAAAAgAAgAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\utilities\StrongPtr.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Typedef Name="EventType" Collapsed="true">
+    <Position X="7.25" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\core\EventData.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="EventDataPtr" Collapsed="true">
+    <Position X="7.25" Y="5.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\core\EventManager.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="EventListenerDelegate" Collapsed="true">
+    <Position X="7.25" Y="6.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\wail\Documents\WEngine\include\core\EventManager.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
