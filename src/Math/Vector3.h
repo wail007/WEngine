@@ -65,7 +65,7 @@ namespace WMath
 		friend Vector3<T> normalize(const Vector3<T>& in_vec);
 
 		template<typename T>
-		friend Vector3<T> dot(const Vector3<T>& in_vec1, const Vector3<T>& in_vec2);
+		friend T dot(const Vector3<T>& in_vec1, const Vector3<T>& in_vec2);
 
 		template<typename T>
 		friend Vector3<T> cross(const Vector3<T>& in_vec1, const Vector3<T>& in_vec2);

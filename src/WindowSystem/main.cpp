@@ -1,81 +1,194 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include "../RenderingEngine/Renderer.h"
-#include "../RenderingEngine/Teapot.h"
 #include "Window.h"
-#include <cstdio>
+
+#define FPS					60
+#define WINDOW_WIDTH		600
+#define WINDOW_HEIGHT		300
 
 
-float v[] = { 0, 0, 0.5 };
+///////////////////////////////cube definition////////////////////////////////////////////////////////////
+GLuint		cubeVBOid;
+GLuint		cubeVAOid;
 
-int main()
+
+float		cubeVertex[] = { 4, 4, -4, 4, -4, -4, -4, -4, -4,	     // Face 1
+-4, -4, -4, -4, 4, -4, 4, 4, -4,     // Face 1
+
+4, -4, 4, 4, -4, -4, 4, 4, -4,       // Face 2
+4, 4, -4, 4, 4, 4, 4, -4, 4,         // Face 2
+
+4, -4, -4, 4, -4, 4, -4, -4, 4,      // Face 3
+-4, -4, 4, -4, -4, -4, 4, -4, -4,    // Face 3
+
+-4, -4, 4, 4, -4, 4, 4, 4, 4,        // Face 4
+4, 4, 4, -4, 4, 4, -4, -4, 4,      // Face 4
+
+-4, -4, -4, -4, -4, 4, -4, 4, 4,     // Face 5
+-4, 4, 4, -4, 4, -4, -4, -4, -4,   // Face 5
+
+-4, 4, 4, 4, 4, 4, 4, 4, -4,         // Face 6
+-4, 4, -4, -4, 4, 4, 4, 4, -4 };      // Face 6
+
+float		cubeNormals[] = { 0, 0, -1, 0, 0, -1, 0, 0, -1,
+0, 0, -1, 0, 0, -1, 0, 0, -1,
+
+1, 0, 0, 1, 0, 0, 1, 0, 0,
+1, 0, 0, 1, 0, 0, 1, 0, 0,
+
+0, -1, 0, 0, -1, 0, 0, -1, 0,
+0, -1, 0, 0, -1, 0, 0, -1, 0,
+
+0, 0, 1, 0, 0, 1, 0, 0, 1,
+0, 0, 1, 0, 0, 1, 0, 0, 1,
+
+-1, 0, 0, -1, 0, 0, -1, 0, 0,
+-1, 0, 0, -1, 0, 0, -1, 0, 0,
+
+0, 1, 0, 0, 1, 0, 0, 1, 0,
+0, 1, 0, 0, 1, 0, 0, 1, 0 };
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+//globlal variables
+SDL_Window*		window;
+SDL_GLContext	openglContext;
+
+
+WMath::Matrix4f view(WMath::lookAt(WMath::Vector3f(30, 60, 30), WMath::Vector3f(-30, -60, -30), WMath::Vector3f(0, 1, 0)));
+
+ShaderObject vert("E:/Documents/WEngine/src/RenderingEngine/vert.glsl", ShaderType::VERTEX_SHADER);
+ShaderObject frag("E:/Documents/WEngine/src/RenderingEngine/frag.glsl", ShaderType::FRAGMENT_SHADER);
+
+ShaderProgram program;
+
+WMath::Matrix4f proj;
+
+
+int main(int argc, char** argv)
 {
-	Window::Init("", 300, 300);
+	//initialise sdl
+	SDL_Init(SDL_INIT_VIDEO);
 
-	WindowInfo w;
-	w.height = w.width = 300;
-	w.pSwapBufferFunc = (SwapBufferFuncPtr)SDL_GL_SwapWindow;
+	//create sdl window
+	window = SDL_CreateWindow("", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_OPENGL);
 
-	Renderer r(w);
+	// set openGL version
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_COMPATIBILITY);
 
-	GPUVertexBuffer vbo((char*)teapotVertex, sizeof(teapotVertex));
-	GPUIndexBuffer ibo((char*)teapotIndex, sizeof(teapotIndex));
+	//create opengl context
+	openglContext = SDL_GL_CreateContext(window);
 
-	VertexLayout vlayout;
-	vlayout.setAttribute(VertexLayout::POSITION, 0, 3);
+	//initialise glew
+	glewExperimental = GL_TRUE;
+	GLenum initGLEW(glewInit());
 
-	GPUVertexLayout vao(vlayout, vbo);
+	std::cout << glewGetString(GLEW_VERSION) << std::endl;
 
-
-	glPointSize(5);
-
-	FILE* f = fopen("E:/Documents/WEngine/src/RenderingEngine/vert.glsl", "r");
-	fseek(f, 0, SEEK_END);
-	long fsize = ftell(f);
-	fseek(f, 0, SEEK_SET);
-	char *string = (char*)malloc(fsize + 1);
-	fread(string, fsize, 1, f);
-	fclose(f);
-	string[fsize] = '\0';
-	ShaderObject vert(string, ShaderType::VERTEX_SHADER);
 	vert.compile();
-	free(string);
-
-	f = fopen("E:/Documents/WEngine/src/RenderingEngine/frag.glsl", "r");
-	fseek(f, 0, SEEK_END);
-	fsize = ftell(f);
-	fseek(f, 0, SEEK_SET);
-	string = (char*)malloc(fsize + 1);
-	fread(string, fsize, 1, f);
-	fclose(f);
-	string[fsize] = '\0';
-	ShaderObject frag(string, ShaderType::FRAGMENT_SHADER);
 	frag.compile();
-	free(string);
+	program.linkProgram(vert, frag);
 
-	ShaderProgram p;
-	p.linkProgram(vert, frag);
-	p.enable();
-	
+	//define matrices
+	proj = WMath::perspective(70.0f, (float)WINDOW_WIDTH / WINDOW_HEIGHT, 1.0f, 1000.0f);
 
 
-	
-	vao.enable();
-	ibo.enable();
+	//////////////////////////////////load cube///////////////////////////////////////
+
+	// generate an id for our VBO
+	glGenBuffers(1, &cubeVBOid);
+
+	// lock VBO so we can work on it
+	glBindBuffer(GL_ARRAY_BUFFER, cubeVBOid);
+
+	// reserve video memory in GPU for our VBO
+	glBufferData(GL_ARRAY_BUFFER, 108 * sizeof(float) * 2, 0, GL_STATIC_DRAW);
+
+	// transfer data to GPU
+	glBufferSubData(GL_ARRAY_BUFFER, 0, 108 * sizeof(float), cubeVertex);
+	glBufferSubData(GL_ARRAY_BUFFER, 108 * sizeof(float), 108 * sizeof(float), cubeNormals);
+
+	// unlock VBO
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	// generate an id for our VAO
+	glGenVertexArrays(1, &cubeVAOid);
+
+	// lock VAO
+	glBindVertexArray(cubeVAOid);
+
+	// lock du VBO
+	glBindBuffer(GL_ARRAY_BUFFER, cubeVBOid);
+
+	// get vertex from VRAM
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(0);
+
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (char*)0 + 108 * sizeof(float));
+	glEnableVertexAttribArray(1);
+
+	// unlock VBO
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	// unlock du VAO
+	glBindVertexArray(0);
+	//////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-	while (1)
+	//main loop
+	for (;;)
 	{
-		r.clearBuffers();
-
-		p.setMatrix4("mvp", WMath::translate(WMath::Vector3f(0,0, 3)));
-
-		glDrawElements(GL_TRIANGLES, sizeof(teapotIndex)/sizeof(int), GL_UNSIGNED_INT, 0);
-		
-
-
-		Window::swapBuffer();
-	}
 	
 
-	return 0;
+		///////////////////////////////////////////rendering//////////////////////////////////////////////////////////////////////////////////
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+
+
+		////////////////////////render cube/////////////////////////////
+		//send matrices to shader
+		lightShader.sendMatrix4("ModelViewMatrix", view*localModel);
+		lightShader.sendMatrix4("MVP", proj*view*localModel);
+		lightShader.sendMatrix3("NormalMatrix", mat3(transpose(inverse(view*localModel))));
+
+		lightShader.sendVector3("Material.Ka", cubeColor * 0.5f);
+		lightShader.sendVector3("Material.Kd", cubeColor);
+		lightShader.sendVector3("color", cubeColor);
+
+		// lock VAO
+		glBindVertexArray(cubeVAOid);
+
+		// render cube
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		// unlock VAO
+		glBindVertexArray(0);
+		////////////////////////////////////////////////////////////////
+
+
+		glUseProgram(0);
+
+		SDL_GL_SwapWindow(window);
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	}
+
+
+	//free memory
+	glDeleteBuffers(1, &cubeVBOid);
+	glDeleteVertexArrays(1, &cubeVAOid);
+
+	SDL_GL_DeleteContext(openglContext);
+	SDL_DestroyWindow(window);
+	SDL_Quit();
+
+	return EXIT_SUCCESS;
 }
+
+
+
+
+

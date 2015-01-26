@@ -162,7 +162,7 @@ namespace WMath
 			x.x(),		y.x(),		z.x(),		0,
 			x.y(),		y.y(),		z.y(),		0,
 			x.z(),		y.z(),		z.z(),		0,
-			dot(x, t),	dot(y, t),	dot(z, t),	1
+			dot(x,t),	dot(y, t),	dot(z, t),	1
 		);
 	}
 

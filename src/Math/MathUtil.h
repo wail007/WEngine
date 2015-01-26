@@ -66,7 +66,18 @@ const double TOLERANCE_DOUBLE	= 1e-08	;
 	//template<typename Numeric>	Numeric	pow(Numeric in_base, Numeric in_exp);
 	//template<typename Real>		Real	exp(Real in_val);
 	//template<typename Real>		Real	sqr(Real in_val);
-	template<typename Real>		Real	sqrt(Real in_val);
+	template<typename Real> inline Real	sqrt(Real in_val);
+
+	template<> inline float sqrt(float in_val)
+	{
+		return std::sqrtf(in_val);
+	}
+
+	template<> inline double sqrt(double in_val)
+	{
+		return std::sqrt(in_val);
+	}
+
 	//template<typename Real>		Real	invSqrt(Real in_val);
 	////////////////////////////////////////////////////////////////////////
 	//
