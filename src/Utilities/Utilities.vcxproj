@@ -41,12 +41,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>..\..\Lib\$(PlatformName)\$(Configuration)\</OutDir>
     <IntDir>..\..\temp\$(PlatformName)_$(Configuration)\$(ProjectName)\</IntDir>
-    <TargetName>$(ProjectName)_$(PlatformName)_$(Configuration)</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>..\..\Lib\$(PlatformName)\$(Configuration)\</OutDir>
     <IntDir>..\..\temp\$(PlatformName)_$(Configuration)\$(ProjectName)\</IntDir>
-    <TargetName>$(ProjectName)_$(PlatformName)_$(Configuration)</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -72,20 +72,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="BitSet.cpp" />
-    <ClCompile Include="DynamicMemoryPool.cpp" />
-    <ClCompile Include="IdentifierPool.cpp" />
-    <ClCompile Include="RefCounter.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="BitSet.h" />
-    <ClInclude Include="Delegate.h" />
-    <ClInclude Include="DynamicMemoryPool.h" />
-    <ClInclude Include="IdentifierPool.h" />
-    <ClInclude Include="RefCounter.h" />
-    <ClInclude Include="StrongPtr.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

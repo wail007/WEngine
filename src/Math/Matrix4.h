@@ -125,7 +125,7 @@ namespace WMath
 	template<typename T>
 	Matrix4<T>::operator T*() const
 	{
-		return m_mat;
+		return (T*)m_mat;
 	}
 
 
@@ -302,11 +302,11 @@ namespace WMath
 		m43	= m34Tmp;
 	}
 
-	template<typename T>
-	void Matrix4<T>::inverse()
-	{
-		*this = getInverse();
-	}
+	//template<typename T>
+	//void Matrix4<T>::inverse()
+	//{
+	//	*this = getInverse();
+	//}
 
 
 	template<typename T>

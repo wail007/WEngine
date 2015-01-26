@@ -45,6 +45,7 @@ namespace WMath
 		Vector3& operator*=(T in_t);
 		Vector3& operator/=(T in_t);
 
+		operator T*();
 		operator T*() const;
 
 		inline T x() const;
@@ -270,11 +271,16 @@ namespace WMath
 		return *this;
 	}
 
+	template<typename T>
+	Vector3<T>::operator T*()
+	{
+		return m_vec;
+	}
 
 	template<typename T>
 	Vector3<T>::operator T*() const  
 	{ 
-		return m_vec;
+		return (T*)m_vec;
 	}
 	
 

@@ -118,7 +118,7 @@ namespace WMath
 	template<typename T>
 	Matrix3<T>::operator T*() const
 	{
-		return m_mat;
+		return (T*)m_mat;
 	}
 
 

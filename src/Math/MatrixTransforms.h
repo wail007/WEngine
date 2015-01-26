@@ -41,7 +41,7 @@ namespace WMath
 
 		for (int i = 0; i < 3; i++)
 		{
-			Vector3<T> v			= in_mat[i]);
+			Vector3<T> v			= in_mat[i];
 			Vector3<T> vParallel	= dot(v, n) * n;
 
 			in_mat.setColumn(i, (v - vParallel)*c + cross(n, v)*s + vParallel);
@@ -88,7 +88,7 @@ namespace WMath
 
 		for (int i = 0; i < 3; i++)
 		{
-			const Vector3<T> v = in_mat[i]);
+			const Vector3<T> v = in_mat[i];
 			const Vector3<T> vParallel = dot(v, n) * n;
 
 			in_mat.setColumn(i, (v - vParallel)*c + cross(n, v)*s + vParallel);

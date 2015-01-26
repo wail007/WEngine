@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="RenderingEngine">
+      <UniqueIdentifier>{02bf3138-04a5-40ed-b5f1-7519beca4c8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderingEngine\Renderers">
+      <UniqueIdentifier>{0cc44fd9-9cf9-46e4-bce0-278f5f559f2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderingEngine\Renderers\OpenGLRenderer">
+      <UniqueIdentifier>{2ccf2fb3-cf62-4e49-836b-322da680da83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderingEngine\Renderers\OpenGLRenderer\GLSL">
+      <UniqueIdentifier>{c2921297-d9c2-484b-8cb2-7b6f9476f46b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderingEngine\Resources">
+      <UniqueIdentifier>{d9b30854-3b83-42c3-b438-e01fc0d940ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderingEngine\SceneGraph">
+      <UniqueIdentifier>{f0a625b0-7e80-4377-a28f-9f5d177b3947}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderingEngine\GlobalStates">
+      <UniqueIdentifier>{db2573d0-1fee-4c1f-84c8-994b628e77ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{3aadd60a-9242-4678-bf20-3b8b746fdcba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{13bc11f0-76ac-4f52-bdcf-f17280854503}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{b800056a-2f2e-4705-88e1-1a395b1efb47}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\RenderingEngine\Buffer.cpp">
+      <Filter>RenderingEngine\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RenderingEngine\VertexLayout.cpp">
+      <Filter>RenderingEngine\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RenderingEngine\IndexBuffer.cpp">
+      <Filter>RenderingEngine\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RenderingEngine\OpenGLIndexBuffer.cpp">
+      <Filter>RenderingEngine\Renderers\OpenGLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RenderingEngine\OpenGLShaderObject.cpp">
+      <Filter>RenderingEngine\Renderers\OpenGLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RenderingEngine\OpenGLShaderProgram.cpp">
+      <Filter>RenderingEngine\Renderers\OpenGLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RenderingEngine\OpenGLVertexBuffer.cpp">
+      <Filter>RenderingEngine\Renderers\OpenGLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RenderingEngine\OpenGLVertexLayout.cpp">
+      <Filter>RenderingEngine\Renderers\OpenGLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RenderingEngine\Renderer.cpp">
+      <Filter>RenderingEngine\Renderers\OpenGLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Utilities\BitSet.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Utilities\RefCounter.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Utilities\DynamicMemoryPool.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Utilities\IdentifierPool.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\WindowSystem\Window.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\WindowSystem\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\RenderingEngine\Buffer.h">
+      <Filter>RenderingEngine\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RenderingEngine\IndexBuffer.h">
+      <Filter>RenderingEngine\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RenderingEngine\VertexBuffer.h">
+      <Filter>RenderingEngine\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RenderingEngine\VertexLayout.h">
+      <Filter>RenderingEngine\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RenderingEngine\Renderer.h">
+      <Filter>RenderingEngine\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RenderingEngine\LibOpenGL.h">
+      <Filter>RenderingEngine\Renderers\OpenGLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RenderingEngine\OpenGLIndexBuffer.h">
+      <Filter>RenderingEngine\Renderers\OpenGLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RenderingEngine\OpenGLShaderObject.h">
+      <Filter>RenderingEngine\Renderers\OpenGLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RenderingEngine\OpenGLShaderProgram.h">
+      <Filter>RenderingEngine\Renderers\OpenGLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RenderingEngine\OpenGLVertexBuffer.h">
+      <Filter>RenderingEngine\Renderers\OpenGLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RenderingEngine\OpenGLVertexLayout.h">
+      <Filter>RenderingEngine\Renderers\OpenGLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Utilities\BitSet.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Utilities\Delegate.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Utilities\DynamicMemoryPool.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Utilities\IdentifierPool.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Utilities\RefCounter.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Utilities\StrongPtr.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Math\MathUtil.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Math\Matrix3.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Math\Matrix4.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Math\MatrixTransforms.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Math\Quaternion.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Math\Vector3.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Math\Vector4.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Math\WMath.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\WindowSystem\Window.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\RenderingEngine\frag.glsl">
+      <Filter>RenderingEngine\Renderers\OpenGLRenderer\GLSL</Filter>
+    </None>
+    <None Include="..\..\src\RenderingEngine\vert.glsl">
+      <Filter>RenderingEngine\Renderers\OpenGLRenderer\GLSL</Filter>
+    </None>
+  </ItemGroup>
+</Project>

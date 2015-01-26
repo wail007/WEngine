@@ -79,10 +79,10 @@ const double TOLERANCE_DOUBLE	= 1e-08	;
 	//template<typename Real>		Real	ceil(Real in_val);
 	//template<typename Real>		Real	floor(Real in_val);
 	//template<typename Real>		Real	mod(Real in_op1, Real in_op2);
-	void seedRand(unsigned int in_seed)
-	{
-		srand(in_seed);
-	}
+	//void seedRand(unsigned int in_seed)
+	//{
+	//	srand(in_seed);
+	//}
 
 	template<typename Real>	Real intervalRand(Real in_min, Real in_max)
 	{

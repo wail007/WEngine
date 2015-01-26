@@ -18,16 +18,8 @@ bool Window::Init(std::string in_name, unsigned int in_width, unsigned int in_he
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_COMPATIBILITY);
 
-	//create multisample buffer for anti-aliasing
-	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 16);
-
 	//create opengl context
 	s_oglContextHandle = SDL_GL_CreateContext(s_winHandle);
-
-
-
-
 
 
 	return true;
@@ -38,6 +30,12 @@ void Window::Release()
 	SDL_GL_DeleteContext(s_oglContextHandle);
 	SDL_DestroyWindow(s_winHandle);
 	SDL_Quit();
+}
+
+
+void Window::swapBuffer()
+{
+	SDL_GL_SwapWindow(s_winHandle);
 }
 
 

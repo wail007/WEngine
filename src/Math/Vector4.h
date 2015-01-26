@@ -44,6 +44,7 @@ namespace WMath
 		Vector4& operator*=(T in_t);
 		Vector4& operator/=(T in_t);
 
+		operator T*();
 		operator T*() const;
 
 		inline T x() const { return m_vec[0]; }
@@ -264,9 +265,15 @@ namespace WMath
 
 
 	template<typename T>
-	Vector4<T>::operator T*() const
+	Vector4<T>::operator T*()
 	{
 		return m_vec;
+	}
+
+	template<typename T>
+	Vector4<T>::operator T*() const 
+	{
+		return (T*)m_vec;
 	}
 
 

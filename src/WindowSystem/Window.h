@@ -13,6 +13,8 @@ public:
 
 	static void Release();
 
+	static void swapBuffer();
+
 private:
 	static unsigned int s_width;
 	static unsigned int s_height;
